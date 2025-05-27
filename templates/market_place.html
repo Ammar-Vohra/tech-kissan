@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - TechKissan</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/cart.css">
+    <script src="static/js/cart.js"></script>
+
+
+    
+</head>
+<body>
+    <!-- Include your existing navbar here -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="#">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+                <button class="login-btn" onclick="toggleSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="market-hero-section">
+        <div class="hero-content">
+            <h1>Agricultural Marketplace</h1>
+            <p>Find the best quality seeds, pesticides, fertilizers, and farming equipment</p>
+        </div>
+    </section>
+
+    <div class="marketplace-container">
+        <div class="filters">
+            <button class="filter-btn active">All Products</button>
+            <button class="filter-btn">Seeds</button>
+            <button class="filter-btn">Pesticides</button>
+            <button class="filter-btn">Fertilizers</button>
+            <button class="filter-btn">Equipment</button>
+        </div>
+
+        <div class="products-grid">
+            <!-- Seeds -->
+            <div class="product-card">
+                <img src="https://plus.unsplash.com/premium_photo-1724849418344-3536f98ba8ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UHJlbWl1bSUyMEh5YnJpZCUyMFRvbWF0byUyMFNlZWRzfGVufDB8fDB8fHww" alt="Hybrid Tomato Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Premium Hybrid Tomato Seeds</h3>
+                    <p class="product-description">High-yielding hybrid tomato seeds resistant to common diseases. Perfect for commercial farming.</p>
+                    <div class="product-price">₹499/packet</div>
+                    <button class="buy-btn" onclick="addToCart('Premium Hybrid Tomato Seeds', 499, 'seeds')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/plant-seed/f/7/r/250-vegetable-carrot-jitka-f1-knessin-original-imah2qabq7hyrh5n.jpeg?q=90&crop=false" alt="Carrot Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Carrot Seeds</h3>
+                    <p class="product-description">High-yielding Carrot seeds resistant to common diseases. Perfect for commercial farming.</p>
+                    <div class="product-price">₹499/packet</div>
+                    <button class="buy-btn" onclick="addToCart('Carrot Seeds', 499, 'seeds')">Add to Cart</button>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/premium-photo/paddy-rice-seed-thai-jasmine_253984-1147.jpg" alt="Rice Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Rice Seeds</h3>
+                    <p class="product-description">High-yielding Rice seeds resistant to common diseases. Perfect for commercial farming.</p>
+                    <div class="product-price">₹499/packet</div>
+                    <button class="buy-btn" onclick="addToCart('Rice Seeds', 499, 'seeds')">Add to Cart</button>
+
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b" alt="Wheat Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Premium Wheat Seeds</h3>
+                    <p class="product-description">High-yield wheat variety suitable for various climates. Drought-resistant.</p>
+                    <div class="product-price">₹799/kg</div>
+                    <button class="buy-btn" onclick="addToCart('Premium Wheat Seeds', 799, 'seeds')">Add to Cart</button>
+
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://theartconnect.in/cdn/shop/products/BuyGreenChilliSeedsOnlineinIndia-TheArtConnect.jpg?v=1655279080&width=1946" alt="Chilli Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Chille Seeds</h3>
+                    <p class="product-description">High-yielding Chille seeds resistant to common diseases. Perfect for commercial farming.</p>
+                    <div class="product-price">₹499/packet</div>
+                    <button class="buy-btn" onclick="addToCart('Chille Seeds', 499, 'seeds')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/QH/HV/MY-11245569/natural-maize-seed-500x500.jpg" alt="Maize Seeds" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Seeds</div>
+                    <h3 class="product-title">Maize Seeds</h3>
+                    <p class="product-description">High-yielding Maize seeds resistant to common diseases. Perfect for commercial farming.</p>
+                    <div class="product-price">₹499/packet</div>
+                    <button class="buy-btn" onclick="addToCart('Maize Seeds', 499, 'seeds')">Add to Cart</button>
+
+                </div>
+            </div>
+
+
+            <!-- Pesticides -->
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlgDirzNMQHwLHMRF8ZYrYN91S6P7V5jSBCw&s" alt="Atrazine Herbicide" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Pesticides</div>
+                    <h3 class="product-title">Atrazine Herbicide</h3>
+                    <p class="product-description">Natural and effective pest control solution safe for organic farming. Controls multiple pest types.</p>
+                    <div class="product-price">₹899/liter</div>
+                    <button class="buy-btn" onclick="addToCart('Atrazine Herbicide', 899/liter, 'pesticides')">Add to Cart</button>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://image.made-in-china.com/2f0j00MVWkyhHlEQcs/High-Quality-Herbicide-Glyphosate-480-SL-360g-L-540g-L-SL.webp" alt="glyphosate herbicide" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Pesticides</div>
+                    <h3 class="product-title">Glyphosate Herbicide</h3>
+                    <p class="product-description">Natural and effective pest control solution safe for organic farming. Controls multiple pest types.</p>
+                    <div class="product-price">₹899/liter</div>
+                    <button class="buy-btn" onclick="addToCart('Glyphosate Herbicide', 899/liter, 'pesticides')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2020/8/OJ/LZ/AU/80016804/y-dichlorvos-ddvp-500x500.jpg" alt="Chlorpyrifos" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Pesticides</div>
+                    <h3 class="product-title">Chlorpyrifos</h3>
+                    <p class="product-description">Natural and effective pest control solution safe for organic farming. Controls multiple pest types.</p>
+                    <div class="product-price">₹899/liter</div>
+                    <button class="buy-btn" onclick="addToCart('Chlorpyrifos', 899/liter, 'pesticides')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/8a4a2c6f-796c-4975-83ac-54d26cd4d53b.__CR240,0,1440,1920_PT0_SX300_V1___.jpg" alt="Pesticide" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Pesticides</div>
+                    <h3 class="product-title">Neem Oil</h3>
+                    <p class="product-description">Natural and effective pest control solution safe for organic farming. Controls multiple pest types.</p>
+                    <div class="product-price">₹899/liter</div>
+                    <button class="buy-btn" onclick="addToCart('Neem Oil', 899/liter, 'pesticides')">Add to Cart</button>
+                    
+                </div>
+            </div>
+
+            <!-- Fertilizers -->
+            <div class="product-card">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRszr3EjTnEX4ZgW_pzpbqPRKhSC4NuU49MS57FN9ny0PvdRY0Z" alt="Vermicompost" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Organic Fertilizers</div>
+                    <h3 class="product-title">Vermicompost</h3>
+                    <p class="product-description">Balanced NPK fertilizer for optimal plant growth. Enhanced with micronutrients.</p>
+                    <div class="product-price">₹1,299/bag</div>
+                    <button class="buy-btn" onclick="addToCart('Vermicompost', 1299/bag, 'organic fertilizers')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cpimg.tistatic.com/05051968/b/4/Neem-Cake-Fertilizer.jpg" alt=" Neem Cake Fertilizer" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Oragnic Fertilizers</div>
+                    <h3 class="product-title"> Neem Cake Fertilizer</h3>
+                    <p class="product-description">Balanced NPK fertilizer for optimal plant growth. Enhanced with micronutrients.</p>
+                    <div class="product-price">₹1,299/bag</div>
+                    <button class="buy-btn" onclick="addToCart('Neem Cake Fertilizer', 1299/bag, 'organic fertilizers')">Add to Cart</button>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448944187/JX/QA/CL/774089/granulated-single-super-phosphate.jpg" alt="Single Super Phosphate" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Chemical Fertilizers</div>
+                    <h3 class="product-title">Single Super Phosphate</h3>
+                    <p class="product-description">Balanced NPK fertilizer for optimal plant growth. Enhanced with micronutrients.</p>
+                    <div class="product-price">₹1,299/bag</div>
+                    <button class="buy-btn" onclick="addToCart('Single Super Phosphate', 1299/bag, 'chemical fertilizers')">Add to Cart</button>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9nYQ5ujQahfkiN1tLwytVDBU80oiuaS--3vbwdegv_kRr-XRZhV4DIwvKlO4cTBEXGk0&usqp=CAU" alt="NPK Fertilizer" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Chemical Fertilizers</div>
+                    <h3 class="product-title">Premium NPK Fertilizer</h3>
+                    <p class="product-description">Balanced NPK fertilizer for optimal plant growth. Enhanced with micronutrients.</p>
+                    <div class="product-price">₹1,299/bag</div>
+                    <button class="buy-btn" onclick="addToCart('Premium NPK Fertilizer', 1299/bag, 'chemical fertilizers')">Add to Cart</button>
+
+                </div>
+            </div>
+
+            <!-- Equipment -->
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStvXT_Nx62Fd6KqI5AteGC-jmBi9Z0bTXatA&s" alt="Solid testing kit" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Equipment</div>
+                    <h3 class="product-title">Soil Testing Kits</h3>
+                    <p class="product-description">Automated sprinkler system with smart controls. Save water and improve efficiency.</p>
+                    <div class="product-price">₹2,999</div>
+                    <button class="buy-btn" onclick="addToCart('Soil Testing Kits', 2999/bag, 'equipment')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://wp-uploads.treelogictools.com.au/2021/03/Pos-Neg-LFDs.jpg" alt="Phytophthora Pocket Diagnostic Single Test Kit - TreeLogic Tools
+                " class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Equipment</div>
+                    <h3 class="product-title">Phytophthora Pocket Diagnostic Single Test Kit - TreeLogic Tools</h3>
+                    <p class="product-description">Automated sprinkler system with smart controls. Save water and improve efficiency.</p>
+                    <div class="product-price">₹2,999</div>
+                    <button class="buy-btn" onclick="addToCart('Phytophthora Pocket Diagnostic Single Test Kit - TreeLogic Tools', 2999/bag, 'equipment')">Add to Cart</button>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcJZqrGo_-BUNT6rhX7HvotDpqT8bI5LL02Q&s" alt="H620L Multirotor UAV Sprayer | Crop-spraying drone
+                " class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Equipment</div>
+                    <h3 class="product-title">H620L Multirotor UAV Sprayer | Crop-spraying drone </h3>
+                    <p class="product-description">Automated sprinkler system with smart controls. Save water and improve efficiency.</p>
+                    <div class="product-price">₹2,999</div>
+                    <button class="buy-btn" onclick="addToCart('H620L Multirotor UAV Sprayer | Crop-spraying drone ', 2999/bag, 'equipment')">Add to Cart</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.niubol.com/static/upload/image/20231018/1697613531175276.jpg" alt="Weather Station" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Equipment</div>
+                    <h3 class="product-title">Weather Stations</h3>
+                    <p class="product-description">Automated sprinkler system with smart controls. Save water and improve efficiency.</p>
+                    <div class="product-price">₹2,999</div>
+                    <button class="buy-btn" onclick="addToCart('Weather Stations', 2999/bag, 'equipment')">Add to Cart</button>
+                    
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/71w2U5WQcSL._AC_SL1500_.jpg" alt="Garden Tools" class="product-image">
+                <div class="product-details">
+                    <div class="product-category">Equipment</div>
+                    <h3 class="product-title">Professional Garden Tool Set</h3>
+                    <p class="product-description">Complete set of high-quality gardening tools. Includes carrying case.</p>
+                    <div class="product-price">₹1,499</div>
+                    <button class="buy-btn" onclick="addToCart('Professional Garden Tool Set', 1499, 'equipment')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-notification" id="cartNotification">
+        Added to cart successfully!
+    </div>
+
+    <div id="cart-sidebar">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <div id="cart-total">Total: ₹<span id="total-price">0</span></div>
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="closeCart()">Close</button>
+    </div>
+    
+    <button id="cart-button" onclick="openCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <span class="brand-text-green">Tech</span>
+                        <span class="brand-text-white">Kissan</span>
+                    </div>
+                    <p>Empowering farmers with cutting-edge technology solutions for sustainable and profitable agriculture.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>support@techkissan.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Agri Street, Digital Valley</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechKissan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Get the filter category from button text
+                const filterCategory = btn.textContent.trim().toLowerCase();
+                
+                // Filter products
+                productCards.forEach(card => {
+                    const productCategory = card.querySelector('.product-category').textContent.toLowerCase();
+                    
+                    if (filterCategory === 'all products') {
+                        // Show all products
+                        card.style.display = 'block';
+                    } else {
+                        // Show only products matching the selected category
+                        if (productCategory.includes(filterCategory)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        productCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            observer.observe(card);
+        });
+
+        // Cart notification
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        const cartNotification = document.getElementById('cartNotification');
+
+        buyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                cartNotification.style.display = 'block';
+                setTimeout(() => {
+                    cartNotification.style.display = 'none';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

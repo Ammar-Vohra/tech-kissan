@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection Result - TechKissan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body>
+    <!-- Navigation (same as before) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="{{ url_for('review_analylzer')}}">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+                <button class="login-btn" onclick="toggleSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="result-section">
+        <div class="result-container">
+            <div class="result-header">
+                <h1>Analysis Results</h1>
+            </div>
+            <div class="result-content">
+                <div class="image-preview">
+                    <h2>Uploaded Image</h2>
+                    <img src="data:image/png;base64,{{ img_data }}" alt="Uploaded Image" class="uploaded-img">
+
+                </div>
+                
+                <div class="prediction-box">
+                    <p>The predicted plant disease is:</p>
+                    <strong>{{ prediction }}</strong>
+                </div>
+                
+                <div class="solution-box">
+                    <h2>Details and Solution</h2>
+                    <div class="solution-content">
+                        {{ solution|safe }}
+                    </div>
+                </div>
+
+                <a class="pred-btn" href="{{ url_for('home') }}">Back to Home</a>
+                <a class="pred-btn" href="{{ url_for('plant_disease') }}">Analyze Another Plant</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

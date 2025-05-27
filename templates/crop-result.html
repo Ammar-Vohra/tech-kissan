@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - TechKissan</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="{{ url_for('review_analyzer')}}">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+                <button class="login-btn" onclick="toggleSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Prediction Result Section -->
+    <section class="crop-result-hero-section">
+        <div class="crop-result-hero-content">
+            <h1>Crop Recommendation Result</h1>
+            <p class="result-text">The most suitable crop to grow in your field is:</p>
+            <h2 class="result-prediction" id="prediction-text">{{ prediction }}</h2>
+        </div>   
+    </section>
+
+    <!-- Buttons Section -->
+    <div class="result-btn-container">
+        <a href="{{ url_for('home') }}" class="result-btn">Back to Home</a>
+        <a href="{{ url_for('crop_recommendation') }}" class="result-btn">Try Again</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechKissan - Agricultural Solutions</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="{{ url_for('review_analyzer') }}">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="window.location.href='/login'">Login</button>
+                <button class="login-btn" onclick="window.location.href='/signup'">Sign Up</button>
+            </div>
+        </div>    
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Farming</h1>
+            <h2>With Technology</h2>
+            <p>Empowering farmers with AI-driven solutions for better crop management, disease detection, and market access.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Get Started</a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Our Services</span>
+                <h2>Smart Solutions for Modern Agriculture</h2>
+                <p>Discover our comprehensive suite of digital tools designed to revolutionize farming practices.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🌱</div>
+                    <h3>Crop Recommendation</h3>
+                    <p>Get AI-powered recommendations for optimal crop selection based on soil conditions, climate, and market demand.</p>
+                    <button class="btn btn-primary"><a href="{{ url_for('crop_recommendation') }}">Get Started</a></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🌿</div>
+                    <h3>Plant Disease Detection</h3>
+                    <p>Instantly identify plant diseases using our advanced image recognition technology and receive treatment suggestions.</p>
+                    <button class="btn btn-primary"><a href="{{ url_for('plant_disease') }}">Get Started</a></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">💬</div>
+                    <h3>Review Analyzer</h3>
+                    <p>Make informed decisions with our AI-powered analysis of agricultural product reviews and market trends.</p>
+                    <button class="btn btn-primary"><a href="{{ url_for('market_place') }}">Get Started</a></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🛒</div>
+                    <h3>Marketplace</h3>
+                    <p>Connect directly with buyers and sellers in our agricultural marketplace for better prices and opportunities.</p>
+                    <button class="btn btn-primary"><a href="{{ url_for('market_place') }}">Get Started</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <span class="brand-text-green">Tech</span>
+                        <span class="brand-text-white">Kissan</span>
+                    </div>
+                    <p>Empowering farmers with cutting-edge technology solutions for sustainable and profitable agriculture.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                        <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>support@techkissan.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Agri Street, Digital Valley</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechKissan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2>Login / Sign Up</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.nav-items').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Modal toggle
+        function toggleModal() {
+            document.getElementById('loginModal').classList.toggle('show');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                modal.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

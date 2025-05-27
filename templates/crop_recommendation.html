@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - TechKissan</title>
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="{{ url_for('review_analyzer')}}">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+                <button class="login-btn" onclick="toggleSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="crop-hero-section">
+        <div class="hero-content">
+            <h1>Crop Recommendation</h1>
+            <p>Get AI-powered recommendations for the best crops to plant based on your soil conditions and environment</p>
+        </div>
+    </section>
+
+    <div class="form-container">
+        <form id="cropRecommendationForm" method="POST" action="{{ url_for('crop_prediction') }}">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="Nitrogen">Nitrogen (N)</label>
+                    <input type="number" id="Nitrogen" name="nitrogen" required 
+                           placeholder="Enter nitrogen content (mg/kg)" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="Phosphorous">Phosphorous (P)</label>
+                    <input type="number" id="Phosphorous" name="phosphorous" required 
+                           placeholder="Enter phosphorus content (mg/kg)" step="0.01" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="pottasium">Potassium (K)</label>
+                    <input type="number" id="pottasium" name="pottasium" required 
+                           placeholder="Enter potassium content (mg/kg)" step="0.01" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="number" id="temperature" name="temperature" required 
+                           placeholder="Enter temperature" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="humidity">Humidity (%)</label>
+                    <input type="number" id="humidity" name="humidity" required 
+                           placeholder="Enter humidity percentage" min="0" max="100" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="ph">pH Level</label>
+                    <input type="number" id="ph" name="ph" required 
+                           placeholder="Enter pH value" min="0" max="14" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="rainfall">Rainfall (mm)</label>
+                    <input type="number" id="rainfall" name="rainfall" required 
+                           placeholder="Enter rainfall amount" step="0.01" min="0">
+                </div>
+
+                <button type="submit" class="submit-btn">Get Crop Recommendation</button>
+            </div>
+        </form>
+
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Analyzing your soil conditions...</p>
+        </div>
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="brand">
+                            <span class="brand-text-green">Tech</span>
+                            <span class="brand-text-white">Kissan</span>
+                        </div>
+                        <p>Empowering farmers with cutting-edge technology solutions for sustainable and profitable agriculture.</p>
+                    </div>
+    
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Marketplace</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="footer-contact">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>support@techkissan.com</li>
+                            <li>+1 (555) 123-4567</li>
+                            <li>123 Agri Street, Digital Valley</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="footer-bottom">
+                    <p>&copy; 2024 TechKissan. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    <!-- <script>
+        document.getElementById('cropRecommendationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading animation
+            document.querySelector('.loading').style.display = 'block';
+            document.querySelector('.submit-btn').disabled = true;
+            
+            // Simulate API call (replace with actual API call)
+            setTimeout(() => {
+                document.querySelector('.loading').style.display = 'none';
+                document.querySelector('.submit-btn').disabled = false;
+                alert('Based on your input, we recommend growing: Rice');
+            }, 2000);
+        });
+
+        // Add floating label animation
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>

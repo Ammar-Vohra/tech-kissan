@@ -1,0 +1,160 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection - TechKissan</title>
+    <link rel="stylesheet" href="static/css/navbar.css">
+
+</head>
+<body> -->
+    <!-- Include your existing navbar here -->
+    <!-- Navigation -->
+    <!-- <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="crop.html">Crop Recommendation</a></li>
+                            <li><a href="plant.html">Plant Disease Detection</a></li>
+                            <li><a href="#">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="market1.html">Marketplace</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="toggleLoginModal()">Login</button>
+                <button class="login-btn" onclick="toggleSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </nav> -->
+
+
+    <!-- <section class="plant-hero-section">
+        <div class="hero-content">
+            <h1>Plant Disease Detection</h1>
+            <p>Upload a photo of your plant and our AI will analyze it for diseases</p>
+        </div>
+    </section>
+
+    <div class="upload-container">
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📸</div>
+            <h3>Drop your image here or click to upload</h3>
+            <p>Supported formats: JPG, PNG, JPEG</p>
+            <input type="file" id="fileInput" class="file-input" accept="image/*">
+        </div>
+        
+        <img id="previewImage" class="preview-image" alt="Preview">
+        
+        <button id="predictBtn" class="submit-btn" disabled>
+            Analyze Plant
+        </button>
+
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Analyzing your plant image...</p>
+        </div>
+
+        <div class="result-container" id="resultContainer">
+            <h3>Analysis Result</h3>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewImage = document.getElementById('previewImage');
+        const predictBtn = document.getElementById('predictBtn');
+        const loadingDiv = document.querySelector('.loading');
+        const resultContainer = document.getElementById('resultContainer');
+        const resultText = document.getElementById('resultText');
+ -->
+        <!-- // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop functionality
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, () => {
+                uploadArea.classList.add('dragover');
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, () => {
+                uploadArea.classList.remove('dragover');
+            });
+        });
+
+        uploadArea.addEventListener('drop', handleDrop);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.display = 'block';
+                        predictBtn.disabled = false;
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please upload an image file');
+                }
+            }
+        }
+
+        predictBtn.addEventListener('click', function() {
+            // Show loading animation
+            loadingDiv.style.display = 'block';
+            predictBtn.disabled = true;
+            resultContainer.style.display = 'none';
+            
+            // Simulate API call (replace with actual API call)
+            setTimeout(() => {
+                loadingDiv.style.display = 'none';
+                predictBtn.disabled = false;
+                resultContainer.style.display = 'block';
+                resultText.textContent = 'The plant appears to have Early Blight. Recommended treatment: Apply fungicide and ensure proper air circulation between plants.';
+            }, 2000);
+        });
+    </script>
+</body>
+</html> -->

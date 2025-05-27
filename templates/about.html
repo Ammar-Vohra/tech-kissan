@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TechKissan</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    
+</head>
+<body>
+    <!-- Navigation (Same as home page) -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text-green">Tech</span>
+                <span class="brand-text-gray">Kissan</span>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Our Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a></li>
+                            <li><a href="{{ url_for('plant_disease') }}">Plant Disease Detection</a></li>
+                            <li><a href="#">Review Analyzer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('market_place') }}">Marketplace</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+                <button class="login-btn" onclick="window.location.href='/login'">Login</button>
+                <button class="login-btn" onclick="window.location.href='/signup'">Sign Up</button>
+            </div>
+        </div>    
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>Our Story</h1>
+            <p class="subtitle">Revolutionizing Agriculture Through Technology</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>At TechKissan, we're committed to transforming traditional farming practices through innovative technology solutions. Our mission is to empower farmers with digital tools that enhance productivity, sustainability, and profitability.</p>
+                </div>
+                <div class="mission-stats">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <p>Farmers Helped</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Districts Covered</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Innovation</h3>
+                    <p>Constantly evolving our solutions to meet modern agricultural challenges</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Farmer First</h3>
+                    <p>Prioritizing farmer needs in every solution we develop</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Sustainability</h3>
+                    <p>Promoting environmentally conscious farming practices</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3>Empowerment</h3>
+                    <p>Enabling farmers with knowledge and tools for success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="static\images\profile-photo-1.jpg" alt="Team member">
+                    <h3>Ammar Vohra</h3>
+                    
+                </div>
+                <div class="team-member">
+                    <img src="static\images\profile-photo-1.jpg" alt="Team member">
+                    <h3>Muhammad Sameer</h3>
+                    <!-- <p class="position">Agricultural Expert</p> -->
+                </div>
+                <div class="team-member">
+                    <img src="static\images\profile-photo-1.jpg" alt="Team member">
+                    <h3>Sarfaraz Hassan</h3>
+                    <!-- <p class="position">Tech Lead</p> -->
+                </div>
+                <div class="team-member">
+                    <img src="static\images\profile-photo-1.jpg" alt="Team member">
+                    <h3>Muhammad Raza</h3>
+                    <!-- <p class="position">Product Manager</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about our solutions? We'd love to hear from you!</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon">📧</span>
+                        <p>support@techkissan.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <p>123 Agri Street, Digital Valley</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as home page) -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <span class="brand-text-green">Tech</span>
+                        <span class="brand-text-white">Kissan</span>
+                    </div>
+                    <p>Empowering farmers with cutting-edge technology solutions for sustainable and profitable agriculture.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>support@techkissan.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Agri Street, Digital Valley</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechKissan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.nav-items').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
